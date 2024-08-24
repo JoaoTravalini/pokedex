@@ -84,38 +84,80 @@
 			}
 		}
 
-		.pokemon__status__statistics{
-			section{
-				h3 {
-					margin-bottom: rem-calc(20);
-				}
-
-				ol{
-					li{
-						display: flex;
-						align-items: center;
-						padding: rem-calc(10);
-						margin-bottom: rem-calc(20);
-						border-radius: rem-calc(25);
-						font-weight: 700;
-						color: #574a4c;
-						
-						border: solid 1px var(--secondary-color);
+		.pokemon__status__statistics {
+			section {
+			  h3 {
+				margin-bottom: rem-calc(20);
+			  }
+		  
+			  ol {
+				li {
+				  display: flex;
+				  align-items: center;
+				  padding: rem-calc(10);
+				  margin-bottom: rem-calc(20);
+				  border-radius: rem-calc(25);
+				  font-weight: 700;
+				  color: #574a4c;
+				  border: solid 2px var(--cinza);
+		  
+				  .stat-name {
+					flex: 1;
+				  }
+		  
+				  .progress-bar {
+					flex: 2;
+					background-color: #e0e0e0; 
+					border-radius: rem-calc(10);
+					height: rem-calc(20);
+					overflow: hidden;
+					margin: 0 rem-calc(10);
+		  
+					.progress {
+					  height: 100%;
+					  transition: width 0.3s ease;
+					  
+					  &.progress-red {
+						background-color: #EF4036; 
+					  }
+					  
+					  &.progress-yellow {
+						background-color: #e4dd1a; 
+					  }
+					  
+					  &.progress-green {
+						background-color: #68AE28; 
+					  }
 					}
+				  }
+		  
+				  strong {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					padding: rem-calc(5);
+					border-radius: rem-calc(50);
+					background: var(--secondary-color);
+					color: var(--branco);
 
-					strong{
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						border: solid 1px var(--secondary-color);
-						padding: rem-calc(5);
-						border-radius: rem-calc(50);
-						background: var(--secondary-color);
-						color: var(--branco);
-					}
+					&.progress-red {
+						background-color: #EF4036; /* Cor vermelha */
+					  }
+					  
+					  &.progress-yellow {
+						background-color: #e4dd1a; /* Cor amarela */
+					  }
+					  
+					  &.progress-green {
+						background-color: #68AE28; /* Cor verde */
+					  }
+				  }
 				}
+			  }
 			}
-		}
+		  }
+		  
+		  
 
 		@media (max-width: 420px) {
 			margin-top: rem-calc(10);

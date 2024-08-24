@@ -15,27 +15,28 @@
         [alt]="pokemon[0].name"
         class="slideInDown"
       >
-
+    
       <article class="pokemon__status__statistics fadeIn">
         <section>
           <h3>Estatísticas</h3>
-
           <ol>
             <li *ngFor="let value of pokemon[0].stats">
-                {{ value.stat.name }}
-
-              <strong>
-                {{ value.base_stat }}
-              </strong>
+              <span class="stat-name">{{ value.stat.name }}</span>
+              <div class="progress-bar">
+                <div class="progress" [ngClass]="getProgressBarClass(value.base_stat)"
+                     [ngStyle]="{'width': value.base_stat + '%'}"></div>
+              </div>
+              <strong [ngClass]="getProgressBarToStrong(value.base_stat)">{{ value.base_stat }}</strong>
             </li>
           </ol>
         </section>
-
+    
         <a [routerLink]="['']" class="btn btn__secondary">
           Voltar
         </a>
       </article>
     </section>
+     
   </ng-template>
 
   <img

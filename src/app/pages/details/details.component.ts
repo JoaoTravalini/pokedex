@@ -41,4 +41,24 @@ export class DetailsComponent implements OnInit {
       }
     );
   }
+
+  public getProgressBarClass(value: number): string {
+    if (value <= 40) {
+      return 'progress-red';
+    } else if (value <= 85) {
+      return 'progress-yellow';
+    } else {
+      return 'progress-green';
+    }
+  }
+
+  public getProgressBarToStrong(value: number): string {
+    if (value <= 40) {
+      return 'progress-red';
+    } else if (value <= 85) {
+      return 'progress-yellow';
+    } else {
+      return 'progress-green';
+    }
+  }
 }
