@@ -13,6 +13,20 @@ export class PokeListComponent implements OnInit {
 
   public apiError: boolean = false;
 
+  public pokemonTypes: string[] = ['Grama', 'Fogo', 'Água', 'Elétrico', 'Pedra', 'Terra', 'Psíquico', 'Fantasma', 'Dragão'];
+  public typeMap: { [key: string]: string } = {
+    'Grama': 'grass',
+    'Fogo': 'fire',
+    'Água': 'water',
+    'Elétrico': 'electric',
+    'Pedra': 'rock',
+    'Terra': 'ground',
+    'Psíquico': 'psychic',
+    'Fantasma': 'ghost',
+    'Dragão': 'dragon'
+  };
+  public selectedType: string = 'all';
+
   constructor(
     private pokeApiService: PokeApiService
   ) { }
@@ -29,11 +43,29 @@ export class PokeListComponent implements OnInit {
     );
   }
 
-  public getSearch(value: string){
-    const filter = this.setAllPokemons.filter( (res: any ) => {
-      return !res.name.indexOf(value.toLowerCase());
-    });
+  public getSearch(value: string) {
+    let filteredPokemons = this.setAllPokemons.filter((pokemon: any) => 
+      !pokemon.name.indexOf(value.toLowerCase())
+    );
+    
+    if (this.selectedType !== 'all') {
+      filteredPokemons = filteredPokemons.filter((pokemon: any) => 
+        pokemon.status.types.some((type: any) => type.type.name === this.selectedType.toLowerCase())
+      );
+    }
+    
+    this.getAllPokemons = filteredPokemons;
+  }
+  
 
-    this.getAllPokemons = filter;
+  public filterByType() {
+    const apiType = this.typeMap[this.selectedType] || 'all';
+    if (apiType === 'all') {
+      this.getAllPokemons = this.setAllPokemons;
+    } else {
+      this.getAllPokemons = this.setAllPokemons.filter((pokemon: any) => 
+        pokemon.status.types.some((type: any) => type.type.name === apiType)
+      );
+    }
   }
 }

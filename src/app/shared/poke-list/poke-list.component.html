@@ -1,4 +1,12 @@
 <poke-search (emmitSearch)="getSearch($event)"></poke-search>
+<div class="tipos">
+  <label for="typeFilter"></label>
+  <select id="typeFilter" [(ngModel)]="selectedType" (change)="filterByType()">
+    <option value="all">Todos</option>
+    <option *ngFor="let type of pokemonTypes" [value]="type">{{ type }}</option>
+  </select>
+</div>
+
 
 <section class="listagem">
   <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">

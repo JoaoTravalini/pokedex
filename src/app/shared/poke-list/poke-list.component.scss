@@ -5,6 +5,42 @@ $padding: rem-calc(20);
 :host {
 	width: 100%;
 
+	.tipos {
+		display: flex;
+		justify-content: end;
+		align-items: center;
+		margin: rem-calc(20) 0 rem-calc(30);
+		color: white;
+		font-weight: 400;
+	
+		select {
+			color: var(--branco);
+			padding: rem-calc(10);
+			margin: 0 rem-calc(5);
+			border-radius: rem-calc(50);
+			border: solid 1px var(--branco);
+			outline: none;
+			padding-right: rem-calc(30); 
+			cursor: pointer;
+	
+			-webkit-appearance: none; 
+			-moz-appearance: none; 
+			appearance: none;
+	
+			background: url('../../../assets/icons/arrow.svg') no-repeat right rem-calc(10) center;
+			background-size: rem-calc(15) rem-calc(15);
+
+			background-color: #51535D;
+	
+			&:focus {
+				background-color: #4A4A55; 
+				background-image: url('../../../assets/icons/arrow.svg'); 
+				background-position: right rem-calc(10) center;
+			}
+		}
+	}
+	
+	
 
 	.listagem {
 		display: flex;

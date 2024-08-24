@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { PokeHeaderComponent } from './poke-header/poke-header.component';
 import { PokeSearchComponent } from './poke-search/poke-search.component';
 import { PokeListComponent } from './poke-list/poke-list.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PokeListComponent } from './poke-list/poke-list.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class SharedModule { }
